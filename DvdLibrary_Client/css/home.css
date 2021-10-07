@@ -1,0 +1,108 @@
+/*
+    CSS file for DvdLibrary_Client
+    With home.html & home.js
+*/
+
+/* Customize the header for the site */
+#dvdLibraryHeader {
+    color: deepskyblue;
+    font-style: italic;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* 
+    Initial Page 
+*/
+
+/* Adjust Search Category select box */
+#searchCategoryInput {
+    border: 1px solid black;
+    text-indent: 8px;
+    margin-left: 22px;
+    font-weight: 400;
+    width: 160px;
+    height: 38px;
+    background-color: ghostwhite;
+}
+
+/* Adjust Search Category Options */ 
+#searchCategoryInput * {
+    background-color: azure;
+}
+
+/* Change Search Bar background color */
+#searchBar {
+    border: 1px solid black;
+    border-radius: 0px;
+    background-color: ghostwhite;
+}
+
+/* 
+    Display Page
+*/
+
+/* Custom class for dynamically added display labels */
+.dynamicDisplayLabels {
+    margin: 5px auto 0;
+}
+
+/* 
+    General use custom classes 
+*/
+
+/* Custom class for various button layouts */
+.adjustButtons {
+    border: 1px solid black;
+    border-radius: 0px;
+    font-weight: 500;
+}
+
+/* Hover effect for custom adjustButton class */
+.adjustButtons:hover {
+    background-color: lightblue;
+}
+
+/* Custom class for Display, Edit, and Create label configurations */
+.labelConfigurations {
+    margin: 5px auto 0;
+    font-weight: 700;
+}
+
+/* Custom class to adjust edit and create search bars */
+.adjustSearchBars {
+    border: 1px solid black;
+    text-indent: 8px;
+    font-weight: 400;
+    width: 16%;
+    height: 37px;
+    background-color: ghostwhite;
+}
+
+/* Adjust edit and create search options */
+.adjustSearchBars * {
+    background-color: azure;
+}
+
+/* Custom class for edit and create input fields */
+.adjustInputFields {
+    border: 1px solid black;
+    border-radius: 0px;
+    width: 37%;
+    background-color: ghostwhite;
+}
+
+/* Custom class for edit and create notes input fields */
+.adjustNotesInputFields {
+    border: 1px solid black;
+    border-radius: 0px;
+    width: 37%;
+    background-color: ghostwhite;
+}
+
+/* Custom class for error messages */
+.adjustErrorMessages {
+    border-radius: 0px;
+    text-align: center;
+    width: 35%;
+    margin-bottom: 15px;
+}
