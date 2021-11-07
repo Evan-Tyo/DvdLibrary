@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DvdLibrary.API", "DvdLibrary\DvdLibrary.API.csproj", "{1108DB10-24B7-4D2F-B81C-02DE5805B08B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DvdLibrary.Test", "DvdLibrary.Test\DvdLibrary.Test.csproj", "{A4E941D8-45C0-4F62-A1C9-418DC812B337}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1108DB10-24B7-4D2F-B81C-02DE5805B08B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1108DB10-24B7-4D2F-B81C-02DE5805B08B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1108DB10-24B7-4D2F-B81C-02DE5805B08B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1108DB10-24B7-4D2F-B81C-02DE5805B08B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4E941D8-45C0-4F62-A1C9-418DC812B337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E941D8-45C0-4F62-A1C9-418DC812B337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E941D8-45C0-4F62-A1C9-418DC812B337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E941D8-45C0-4F62-A1C9-418DC812B337}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4AE75D54-FE2E-4086-A40B-105E04022043}
+	EndGlobalSection
+EndGlobal
