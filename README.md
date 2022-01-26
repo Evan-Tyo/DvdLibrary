@@ -3,7 +3,6 @@
 ### **Description**:
 A full-stack application which creates a virtual dvd library
 <br> Built with: TSQL, C#, ASP.NET, HTML, CSS, Bootstrap, Javascript, jQuery
-<br> Hosted on Azure, see it in action [here](https://dvdlibraryet.azurewebsites.net/)
 
 ### **Information**:
 The application hosts three parts:
