@@ -1,5 +1,6 @@
 ﻿using DvdLibrary.Interfaces;
 using DvdLibrary.Repositories;
+using DvdLibrary.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,6 +17,8 @@ namespace DvdLibrary.Factories
             // Set the mode based on the configuration string from Web.config
             string mode = ConfigurationManager.AppSettings["Mode"].ToString();
 
+            RunScript.EveryHourScript();
+
             // Chose the repository basedon the mode
             switch (mode)
             {
@@ -25,6 +28,8 @@ namespace DvdLibrary.Factories
                     return new DvdRepositoryADO();
                 case "Dapper":
                     return new DvdRepositoryDapper();
+                case "ADO_RE":
+                    return new DvdRepositoryADO_RE();
                 default:
                     throw new Exception("Mode value in app settings is not valid.");
             }

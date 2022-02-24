@@ -1,0 +1,147 @@
+﻿DROP TABLE IF EXISTS public.Dvds CASCADE;
+
+CREATE TABLE Dvds (
+	id SERIAL PRIMARY KEY,
+	title VARCHAR(50) NOT NULL,
+	releaseYear INT NOT NULL,
+	director VARCHAR(30) NULL,
+	rating VARCHAR(10) NULL,
+	notes VARCHAR(500) NULL
+);
+
+TRUNCATE TABLE public.Dvds RESTART IDENTITY;
+
+INSERT INTO public.Dvds (id, title, releaseYear, director, rating, notes) 
+VALUES 	(nextval('public.Dvds_id_seq'), 'Avatar', 2009, 'James Cameron', 'PG-13', 'A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.'),
+		(nextval('public.Dvds_id_seq'), 'Avengers: Endgame', 2019, 'Anthony Russo', 'PG-13', 'After the devastating events of Avengers: Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe.'),
+		(nextval('public.Dvds_id_seq'), 'Titanic', 1997, 'James Cameron', 'PG-13', 'A seventeen-year-old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill-fated R.M.S. Titanic.'),
+		(nextval('public.Dvds_id_seq'), 'Star Wars: Episode VII - The Force Awakens', 2015, 'J.J. Abrams', 'PG-13', 'As a new threat to the galaxy rises, Rey, a desert scavenger, and Finn, an ex-stormtrooper, must join Han Solo and Chewbacca to search for the one hope of restoring peace.'),
+		(nextval('public.Dvds_id_seq'), 'Avengers: Infinity War', 2018, 'Anthony Russo', 'PG-13', 'The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.');
+
+DROP FUNCTION IF EXISTS usp_DvdSelectAll;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectAll()
+RETURNS setof public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdSelectById;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectById(_id int)
+RETURNS public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	WHERE public.Dvds."id" = _id
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdSelectByTitle;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectByTitle(_title VARCHAR(50))
+RETURNS setof public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	WHERE public.Dvds."title" LIKE (_title || '%')
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdSelectByYear;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectByYear (_releaseYear int)
+RETURNS setof public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	WHERE public.Dvds."releaseyear" = _releaseYear
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdSelectByDirector;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectByDirector(_director VARCHAR(30))
+RETURNS setof public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	WHERE public.Dvds."director" LIKE ('%' || _director || '%')
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdSelectByRating;
+
+CREATE OR REPLACE FUNCTION usp_DvdSelectByRating(_rating VARCHAR(10))
+RETURNS setof public.Dvds
+AS
+$func$
+	SELECT *
+	FROM public.Dvds
+	WHERE public.Dvds."rating" = _rating
+	ORDER BY "id";
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdAdd;
+
+CREATE OR REPLACE FUNCTION usp_DvdAdd(
+	_title VARCHAR(50),
+	_releaseYear int,
+	_director VARCHAR(30),
+	_rating VARCHAR(10),
+	_notes VARCHAR(500)
+)
+RETURNS VOID
+AS
+$func$
+	INSERT INTO public.Dvds (id, title, releaseYear, director, rating, notes) 
+	VALUES (nextval('public.Dvds_id_seq'), _title, _releaseYear, _director, _rating, _notes);
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdUpdate;
+
+CREATE OR REPLACE FUNCTION usp_DvdUpdate(
+	_id int,
+	_title VARCHAR(50),
+	_releaseYear int,
+	_director VARCHAR(30),
+	_rating VARCHAR(10),
+	_notes VARCHAR(500)
+)
+RETURNS VOID
+AS
+$func$
+	UPDATE public.Dvds
+		SET title = _title,
+			releaseyear = _releaseYear,
+			director = _director,
+			rating = _rating,
+			notes = _notes
+	WHERE public.Dvds."id" = _id;
+$func$
+LANGUAGE sql;
+
+DROP FUNCTION IF EXISTS usp_DvdDelete;
+
+CREATE OR REPLACE FUNCTION usp_DvdDelete (_id int)
+RETURNS VOID
+AS
+$func$
+	DELETE FROM public.Dvds
+	WHERE "id" = _id;
+$func$
+LANGUAGE sql;
