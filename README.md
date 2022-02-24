@@ -4,6 +4,13 @@
 A full-stack application which creates a virtual dvd library
 <br> Built with: TSQL, C#, ASP.NET, HTML, CSS, Bootstrap, Javascript, jQuery
 
+Check out a live demo [here](https://dvd-library-app.herokuapp.com/)!
+
+### **Updated Feb 24th 2022**
+- Refactored scripts from 4 sql files into 1 postgresql file
+- The postgresql file gets read and resets the postgresql database every hour
+- All original files are still included 
+
 ### **Information**:
 The application hosts three parts:
 1. Scripts: A collection of TSQL scripts to create the database
